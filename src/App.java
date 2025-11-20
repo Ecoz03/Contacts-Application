@@ -1,64 +1,83 @@
 /*
  * Name: Jessie Sosniak
- * Date: 13 NOV 2025
- * Assignment: 1.5 Project
- * Description: Week 1 demo application for Contacts project; demonstrates
- * inheritance, composition, and user interaction.
+ * Date: 20 NOV 2025
+ * Assignment: 2.2 Project
+ * Description: Demonstrates menu-driven console application with interface (Verifiable)
+ * and polymorphism (Contact vs BusinessContact).
  */
 
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         AddressBook addressBook = new AddressBook();
 
         System.out.println("======================================");
-        System.out.println("   Sosniak's Digital Contact System   ");
+        System.out.println("   Project Week 2: Contacts System    ");
+        System.out.println("   Author: Jessie Sosniak             ");
         System.out.println("======================================\n");
 
+        System.out.println("Welcome to the Contacts Application!");
         System.out.println("Instructions:");
-        System.out.println("Type the number corresponding to the action you wish to perform.");
-        System.out.println("Use 'X' to exit the application at any time from the main menu.");
-        System.out.println("Use 'R' to return to the previous menu from any submenu.\n");
+        System.out.println(" - Type the number of the action you want to perform.");
+        System.out.println(" - Type 'X' to exit the application from the main menu.");
+        System.out.println(" - Type 'R' to return to the main menu from any submenu.");
+        System.out.println(" - Input is not case sensitive.\n");
 
         boolean running = true;
 
-        //Following loop ensures user can loop back to main menu.
         while (running) {
             System.out.println("Main Menu:");
-            System.out.println("1. Add a Sample Contact"); //Sample Contact for demo purposes
-            System.out.println("2. Display All Contacts");
-            System.out.println("X. Exit Application"); //Non-numeric to avoid accidental closure
+            System.out.println("1. Add a Contact");
+            System.out.println("2. Remove a Contact");
+            System.out.println("3. Update a Contact");
+            System.out.println("4. Display Contacts");
+            System.out.println("X. Exit Application");
+            System.out.print("Select an option: ");
 
-            String input = scanner.nextLine().trim().toLowerCase();
+            String choice = scanner.nextLine().trim().toUpperCase();
 
-            switch (input) {
+            switch (choice) {
                 case "1":
-                    //Sample contact for Week 1 demo
-                    BusinessContact sample = new BusinessContact(
-                        "Jane", "Doe", "867-5309", "jane@email.com", "123 Main St.",
-                        "Norfolk", "VA", "23510", 
-                        "Doe Enterprises"
+                    // Example: add a BusinessContact for demonstration
+                    System.out.println("\nAdding a sample Business Contact...");
+                    BusinessContact colleague = new BusinessContact(
+                        "Bob", "Smith", "555-5678", "bob@company.com",
+                        "100 Market Ave", "Norfolk", "VA", "23510",
+                        "Smith Consulting"
                     );
-                    addressBook.addContact(sample);
-                    System.out.println("Sample contact added. Input implementation to be added.\n");
+                    addressBook.addContact(colleague);
+                    System.out.println("Contact added!\n");
                     break;
+
                 case "2":
+                    System.out.println("\nRemove Contact feature not yet implemented.\n");
+                    break;
+
+                case "3":
+                    System.out.println("\nUpdate Contact feature not yet implemented.\n");
+                    break;
+
+                case "4":
+                    System.out.println("\nDisplaying all contacts:\n");
                     addressBook.displayAllContacts();
                     break;
-                case "x":
-                    System.out.print("Are you sure you want to exit the program? (Y/N)");
-                    String confirm = scanner.nextLine().trim().toLowerCase();
-                    if (confirm.equals("y")) {
-                        running = false; //exits the while loop and pushes to scanner.close();
-                    }
-                    else {
-                        System.out.println("Exit canceled. Returning to main menu.\n");
+
+                case "X":
+                    System.out.print("\nAre you sure you want to exit the program? (Y/N): ");
+                    String confirm = scanner.nextLine().trim().toUpperCase();
+                    if (confirm.equals("Y")) {
+                        running = false;
+                        System.out.println("Exiting program. Goodbye!");
+                    } else {
+                        System.out.println("Exit cancelled.\n");
                     }
                     break;
-                default: 
-                    System.out.println("Invalid input. Please try again.\n");
+
+                default:
+                    System.out.println("\nInvalid input. Please try again.\n");
+                    break;
             }
         }
 

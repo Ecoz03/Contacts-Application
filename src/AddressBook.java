@@ -1,39 +1,33 @@
 /*
  * Name: Jessie Sosniak
- * Date: 13 NOV 2025
- * Assignment: 1.5 Project
- * Description: Demonstrates composition by managing a list of Contact objects.
+ * Date: 20 NOV 2025
+ * Assignment: 2.2 Project
+ * Description: Manages a collection of contacts using composition.
  */
 
 import java.util.ArrayList;
 
 public class AddressBook {
-    //Composition: AddressBook contains Contact objects.
     private ArrayList<Contact> contacts;
 
-    //Constructor
     public AddressBook() {
         contacts = new ArrayList<>();
     }
 
-    //Method to add a contact
     public void addContact(Contact contact) {
         contacts.add(contact);
     }
 
-    //Method to display all contacts
     public void displayAllContacts() {
         int count = 1;
         for (Contact contact : contacts) {
             System.out.println("Contact " + count);
+            // Demonstrates polymorphism: calls displayContact() on base type
             contact.displayContact();
-            System.out.println(); //Blank line between contacts
+            // Demonstrates interface use: calls isVerified() polymorphically
+            System.out.println("Verified: " + contact.isVerified());
+            System.out.println();
             count++;
         }
-    }
-
-    //Getter for contact list (optional for future use)
-    public ArrayList<Contact> getContacts() {
-        return contacts;
     }
 }
