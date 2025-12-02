@@ -1,36 +1,33 @@
 /*
  * Name: Jessie Sosniak
- * Date: 25 NOV 2025
- * Assignment: 3.2 Project
+ * Date: 02 DEC 2025
+ * Assignment: 4.2 Project
  * Description: Manages a collection of contacts using composition.
  */
 
-import java.util.ArrayList;
-
 public class AddressBook {
-    private ArrayList<Contact> contacts;
 
     public AddressBook() {
-        contacts = new ArrayList<>();
+        //No in-memory list needed anymore
     }
 
     public void addContact(Contact contact) {
-        contacts.add(contact);
+        DatabaseHelper.insertContact(contact);
     }
 
     public void displayAllContacts() {
-        if (contacts.isEmpty()) {
-            System.out.println("No contacts found.\n");
-            return;
-        }
+        DatabaseHelper.displayAllContacts();
+    }
 
-        int count = 1;
-        for (Contact contact : contacts) {
-            System.out.println("Contact " + count);
-            //Polymorphism: calls displayContact() on interface type
-            contact.displayContact();
-            System.out.println();
-            count++;
-        }
+    public void searchByLastInitial(String initial) {
+        DatabaseHelper.searchByLastInitial(initial);
+    }
+
+    public void removeContact(int id) {
+        DatabaseHelper.removeContact(id);
+    }
+
+    public void updateContact(int id, Contact updatedContact) {
+        DatabaseHelper.updateContact(id, updatedContact);
     }
 }

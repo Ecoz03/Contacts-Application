@@ -1,7 +1,7 @@
 /*
  * Name: Jessie Sosniak
- * Date: 25 NOV 2025
- * Assignment: 3.2 Project
+ * Date: 02 DEC 2025
+ * Assignment: 4.2 Project
  * Description: Abstract base class implementing Contact interface and holding shared fields.
  */
 
