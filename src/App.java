@@ -18,7 +18,7 @@ public class App {
 
         //Title and instructions
         System.out.println("Author: Jessie Sosniak");
-        System.out.println("Program: Week 4 Contacts Application Project\n");
+        System.out.println("Contacts Application Project\n");
         System.out.println("Instructions:");
         System.out.println(" - Type the number of the action you want to perform.");
         System.out.println(" - Type 'X' at the main menu to exit the application.");
@@ -299,7 +299,7 @@ public class App {
                         }
                     }
                     if (confirmExit) {
-                        System.out.println("Exiting Address Book. Goodbye!");
+                        System.out.println("Exiting Contacts Application. Goodbye!");
                         running = false;
                     }
                     break;
@@ -311,4 +311,5 @@ public class App {
 
         scanner.close();
     }
+
 }
