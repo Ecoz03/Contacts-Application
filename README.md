@@ -54,7 +54,8 @@ This application serves to function as a "digital rolodex", where users can util
 - SQLite database file (contacts.db) is auto-created if not present.
 - Currently CLI-only, could be extended with a GUI.
 ## Link to Project
-(to be included later)
+[GitHub Project Link](https://github.com/Ecoz03/Contacts-Application/releases/tag/Phase-Final)
 ## Link to Video
 [Google Drive Link](https://drive.google.com/file/d/1oYb9ZAcbdpF_xKeRBOXyHIv1G-3jqisF/view?usp=sharing)
+
 
